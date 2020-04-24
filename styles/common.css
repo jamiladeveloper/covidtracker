@@ -10,6 +10,10 @@
     font-family: fantasy;
 }
 
+.titleheader {
+    padding-right:130px;
+}
+
 .space-big {
     margin: 25px auto 25px auto;
 }

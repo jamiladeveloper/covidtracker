@@ -11,14 +11,16 @@
         <div class="container-fluid body">
 
             <div class="row">
-                <div class="col-md-4 align-right">
-                    <img src="./images/covid-virus.jpg" alt="" width="200px"> 
-                </div>
-                <div class="col-md-8 font-xxx-large align-left">
-                    <span><strong>COVID19 INDIA TRACKER</strong></span>
+                <div class="col-md-12 center titleheader">
+                    <img src="./images/covid-virus.jpg" alt="" width="150px" style="padding-bottom:25px"> 
+                    <span class="font-xxx-large"><strong>COVID19 INDIA TRACKER</strong></span>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-md-12 center">
+                    <span id="date"></span>
+                </div>
+            </div>
             <div class="row">
                 <div class="space-big"></div>
             </div>
@@ -76,6 +78,7 @@
         </div>
 
         <script src="./scripts/state-district-wise.js"></script>
+        <script src="./scripts/common.js"></script>
         <link rel="stylesheet" href="./styles/common.css">
     </body>
 </html>
