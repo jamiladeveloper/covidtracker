@@ -1,3 +1,35 @@
 .body {
     margin: 30px auto 30px auto;
 }
+
+.center {
+    text-align: center;
+}
+
+.title {
+    font-family: fantasy;
+}
+
+.font-x-large {
+    font-size: x-large;
+}
+
+.font-xx-large {
+    font-size: xx-large;
+}
+
+.color-seagreen{
+    color: seagreen;
+}
+
+.color-royalblue {
+    color: royalblue;
+}
+
+.color-coral {
+    color: coral;
+}
+
+.color-grey {
+    color: grey;
+}
