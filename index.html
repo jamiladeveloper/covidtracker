@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Covid Tracker</title>
+
+        <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
+        <script src="./libs/js/jquery-3.5.0.min.js"></script>
+        <script src="./libs/js/popper.min.js"></script>
+        <script src="./libs/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container body">
+            <div class="row">
+                <div class="col-md-3">
+                    Confirmed = <span id="totalConfirmed"></span>
+                </div>
+                <div class="col-md-3">
+                    Active = <span id="totalActive"></span>
+                </div>
+                <div class="col-md-3">
+                    Deceased = <span id="totalDeceased"></span>
+                </div>
+                <div class="col-md-3">
+                    Recovered = <span id="totalRecovered"></span>
+                </div>
+            </div>
+        </div>
+
+        <script src="./scripts/state-district-wise.js"></script>
+        <link rel="stylesheet" href="./styles/common.css">
+    </body>
+</html>
