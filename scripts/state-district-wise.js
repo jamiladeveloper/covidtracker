@@ -11,7 +11,7 @@ $(document).ready(function () {
         var totalRecovedCases = 0;
 
         var topDistricts = [];
-        var showMaxDistricts = 20;
+        var showMaxDistricts = 50;
 
 
         // State Loop
