@@ -11,6 +11,7 @@ $(document).ready(function () {
         var totalRecovedCases = 0;
 
         var topDistricts = [];
+        var showMaxDistricts = 20;
 
 
         // State Loop
@@ -35,7 +36,7 @@ $(document).ready(function () {
                 districtObj.district = value;
                 topDistricts.push(districtObj);
 
-                
+
 
 
             });
@@ -49,8 +50,8 @@ $(document).ready(function () {
 
         // Sort Districts based on confirmed count
         topDistricts.sort(GetSortOrder("confirmed"));
+        updateTopDistrictTable(topDistricts, showMaxDistricts);
 
-        
 
         $("#totalConfirmed").html(totalConfirmedCases);
         $("#totalActive").html(totalActiveCases);
@@ -81,4 +82,21 @@ $(document).ready(function () {
             return 0;
         }
     }
+
+    function updateTopDistrictTable(topDistricts, maxDistricts) {
+
+        var tbody = $('#top-districts-table').children('tbody');
+
+        //Then if no tbody just select your table 
+        //var table = tbody.length ? tbody : $('#myTable');
+
+        var count = 1;
+        $.each(topDistricts, function (key, value) {
+            if(count <= maxDistricts) {
+                tbody.append("<tr>" + "<td>" + count + "</td>" + "<td>" + value.district.district + "</td>" + "<td>" + value.state + "</td>" + "<td>" + value.district.confirmed + "</td>" + "<td>" + value.district.active + "</td>" + "<td>" + value.district.recovered + "</td>" + "<td>" + value.district.deceased + "</tr>");
+                count++;
+            }
+        });
+    }
+
 });

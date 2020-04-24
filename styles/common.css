@@ -10,12 +10,24 @@
     font-family: fantasy;
 }
 
+.space-big {
+    margin: 25px auto 25px auto;
+}
+
+.space-small {
+    margin: 10px auto 10px auto;
+}
+
 .font-x-large {
     font-size: x-large;
 }
 
 .font-xx-large {
     font-size: xx-large;
+}
+
+.font-xxx-large {
+    font-size: xxx-large;
 }
 
 .color-seagreen{
