@@ -50,7 +50,7 @@ $(document).ready(function () {
 
         console.log("fetching data from https://api.covid19india.org/resources/resources.json");;
 
-        
+
         //topDistricts.sort(GetSortOrder("confirmed"));
         updateEssentialsTable(data.resources);
 
@@ -67,6 +67,14 @@ $(document).ready(function () {
         .always(function () {
             //alert("finished");
         });
+
+
+    $("#essentialSearch").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#essentials-table tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
 
     function GetSortOrder(prop) {
         return function (a, b) {
@@ -87,13 +95,13 @@ $(document).ready(function () {
 
             var contactList = value.phonenumber;
             var contacts = contactList.split(",\n");
-            
+
             var contactHtml = "";
-            $.each(contacts, function(key, value) {
-                contactHtml+="<a href='tel:" + value + "'>" + value + "</a> <br>";
+            $.each(contacts, function (key, value) {
+                contactHtml += "<a href='tel:" + value + "'>" + value + "</a> <br>";
             });
-            
-            tbody.append("<tr>" + "<td>" + value.city + "</td>" + "<td>" + value.category + "</td>" + "<td>" + "<a href='" + value.contact + "'>" + value.nameoftheorganisation +  "</a>" + "</td>" + "<td>" + value.descriptionandorserviceprovided + "</td>" + "<td>" + contactHtml + "</td>" + "</tr>");
+
+            tbody.append("<tr>" + "<td>" + value.city + "</td>" + "<td>" + value.category + "</td>" + "<td>" + "<a href='" + value.contact + "'>" + value.nameoftheorganisation + "</a>" + "</td>" + "<td>" + value.descriptionandorserviceprovided + "</td>" + "<td>" + contactHtml + "</td>" + "</tr>");
         });
     }
 
