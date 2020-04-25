@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     var jqxhr = $.get("../data/totalcount.json", function (data) {
 
-        console.log("fetching data from local count");;
+        console.log("fetching data from local count" + data);
 
         confirmed = data.confirmed;
         active = data.active;
