@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     $("#districtSearch").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#top-districts-table tr").filter(function () {
+        $("#top-districts-table tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

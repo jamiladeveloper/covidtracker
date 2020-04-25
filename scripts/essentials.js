@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     $("#essentialSearch").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#essentials-table tr").filter(function () {
+        $("#essentials-table tbody tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
