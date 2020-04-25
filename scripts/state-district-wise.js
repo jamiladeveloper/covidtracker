@@ -1,5 +1,37 @@
 $(document).ready(function () {
 
+    var confirmed = 0;
+    var active = 0;
+    var recovered = 0;
+    var deceased = 0;
+    var lastUpdate;
+
+    var jqxhr = $.get("../data/totalcount.json", function (data) {
+
+        console.log("fetching data from local count");;
+
+        confirmed = data.confirmed;
+        active = data.active;
+        recovered = data.recovered;
+        deceased = data.deceased;
+        
+        console.log(confirmed);
+
+        console.log("data successfully received");
+
+    })
+        .done(function () {
+            console.log("hide");
+            //alert("second success");
+        })
+        .fail(function () {
+            alert("error");
+        })
+        .always(function () {
+            //alert("finished");
+        });
+
+
     // fetch data from api
     var jqxhr = $.get("https://api.covid19india.org/v2/state_district_wise.json", function (data) {
 
@@ -42,6 +74,10 @@ $(document).ready(function () {
             });
 
         });
+
+        if(totalConfirmedCases !== confirmed || totalActiveCases !== active || totalDeceasedCases !== deceased || totalRecovedCases !== recovered) {
+            console.log("recently updated");
+        }
 
         console.log("Total Confirmed Cases = " + totalConfirmedCases);
         console.log("Total Active Cases = " + totalActiveCases);
