@@ -18,6 +18,14 @@
     padding-right:130px;
 }
 
+.marqueeclass {
+    text-align: center;
+}
+
+.marqueeclass a{
+    color: darkmagenta;
+}
+
 .space-big {
     margin: 25px auto 25px auto;
 }

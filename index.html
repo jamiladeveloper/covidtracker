@@ -1,121 +1,127 @@
 <html>
-    <head>
-        <title>Covid Tracker</title>
 
-        <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
-        <script src="./libs/js/jquery-3.5.0.min.js"></script>
-        <script src="./libs/js/popper.min.js"></script>
-        <script src="./libs/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="container-fluid body">
+<head>
+    <title>Covid Tracker</title>
 
-            <div class="row">
-                <div class="col-md-12 center titleheader">
-                    <img src="./images/covid-virus.jpg" alt="" width="150px" style="padding-bottom:25px"> 
-                    <span class="font-xxx-large"><strong>COVID19 INDIA TRACKER</strong></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 center date">
-                    <span id="date"></span>
-                </div>
-            </div>
+    <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
+    <script src="./libs/js/jquery-3.5.0.min.js"></script>
+    <script src="./libs/js/popper.min.js"></script>
+    <script src="./libs/js/bootstrap.min.js"></script>
+</head>
 
-            <div class="row">
-                <div class="space-big"></div>
-            </div>
-            <div class="row center">
-                <div class="col-md-3 color-seagreen">
-                    <div class="title font-x-large">Confirmed</div><span id="totalConfirmed" class="title font-xx-large"></span>
-                </div>
-                <div class="col-md-3 color-royalblue">
-                    <div class="title font-x-large">Active</div><span id="totalActive" class="title font-xx-large"></span>
-                </div>
-                <div class="col-md-3 color-coral">
-                    <div class="title font-x-large">Recovered</div><span id="totalRecovered" class="title font-xx-large"></span>
-                </div>
-                <div class="col-md-3 color-grey">
-                    <div class="title font-x-large">Deceased</div><span id="totalDeceased" class="title font-xx-large"></span>
-                </div>
-            </div>
+<body>
+    <div class="container-fluid body">
 
-            <div class="row">
-                <div class="space-big"></div>
+        <div class="row">
+            <div class="col-md-12 center titleheader">
+                <img src="./images/covid-virus.jpg" alt="" width="150px" style="padding-bottom:25px">
+                <span class="font-xxx-large"><strong>COVID19 INDIA TRACKER</strong></span>
             </div>
-            <div class="row">
-                <div class="col-md-12 center">
-                    <span class="title font-xx-large"> 
-                        <marquee behavior="alternate" direction="up" height="75" style="text-align: center;">
-                            <a href="./essentials.html">Check Service Providers</a>
-                        </marquee>
-                    </span>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="space-big"></div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="space-big"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 center">
-                    <span class="title font-xx-large">Top 15 Districts</span>
-                    <span class="title font-large"> <a href="./districts.html">(View All Districts)</a></span>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="space-small"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <table id="top-districts-table" class="table table-stripped font-large">
-                        <thead>
-                            <th>#No</th>
-                            <th>District</th>
-                            <th>State</th>
-                            <th>Confirmed</th>
-                            <th>Active</th>
-                            <th>Recovered</th>
-                            <th>Deceased</th>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            
-
-            <div class="row">
-                <div class="col-md-6 footer align-left">
-                    <span>Datasource: <a href="https://www.covid19india.org/">covid19india.org</a></span>
-                </div>
-                <div class="col-md-6 footer align-right">
-                    <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center date">
+                <span id="date"></span>
             </div>
         </div>
 
-        
+        <div class="row">
+            <div class="space-big"></div>
+        </div>
+        <div class="row center">
+            <div class="col-md-3 color-seagreen">
+                <div class="title font-x-large">Confirmed</div><span id="totalConfirmed"
+                    class="title font-xx-large"></span>
+            </div>
+            <div class="col-md-3 color-royalblue">
+                <div class="title font-x-large">Active</div><span id="totalActive" class="title font-xx-large"></span>
+            </div>
+            <div class="col-md-3 color-coral">
+                <div class="title font-x-large">Recovered</div><span id="totalRecovered"
+                    class="title font-xx-large"></span>
+            </div>
+            <div class="col-md-3 color-grey">
+                <div class="title font-x-large">Deceased</div><span id="totalDeceased"
+                    class="title font-xx-large"></span>
+            </div>
+        </div>
 
-        
+        <div class="row">
+            <div class="space-big"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center">
+                <span class="title font-xx-large">
+                    <marquee behavior="alternate" direction="up" height="75" class="marqueeclass">
+                        <a href="./essentials.html">Check Service Providers</a>
+                    </marquee>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="space-big"></div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="space-big"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center">
+                <span class="title font-xx-large">Top 15 Districts</span>
+                <span class="title font-large"> <a href="./districts.html">(View All Districts)</a></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="space-small"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <table id="top-districts-table" class="table table-stripped font-large">
+                    <thead>
+                        <th>#No</th>
+                        <th>District</th>
+                        <th>State</th>
+                        <th>Confirmed</th>
+                        <th>Active</th>
+                        <th>Recovered</th>
+                        <th>Deceased</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6 footer align-left">
+                <span>Datasource: <a href="https://www.covid19india.org/">covid19india.org</a></span>
+            </div>
+            <div class="col-md-6 footer align-right">
+                <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
+            </div>
+        </div>
+    </div>
 
 
 
 
 
 
-        
 
-        <script src="./scripts/state-district-wise-home.js"></script>
-        <script src="./scripts/common.js"></script>
 
-        <script src="./libs/js/smtp.js"></script>
-        
-        <link rel="stylesheet" href="./styles/common.css">
-    </body>
+
+
+
+
+    <script src="./scripts/state-district-wise-home.js"></script>
+    <script src="./scripts/common.js"></script>
+
+    <script src="./libs/js/smtp.js"></script>
+
+    <link rel="stylesheet" href="./styles/common.css">
+</body>
+
 </html>
