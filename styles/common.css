@@ -18,6 +18,11 @@
     padding-right:130px;
 }
 
+.titleheader a {
+    text-decoration: none;
+    color: black;
+}
+
 .marqueeclass {
     text-align: center;
 }
@@ -90,3 +95,4 @@ th {
     top: 0;
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
   }
+
