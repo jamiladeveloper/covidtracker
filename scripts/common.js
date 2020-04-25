@@ -10,28 +10,6 @@ $(document).ready(function () {
     $("#date").html(dayText[day - 1] + ", " + date + "/" + month + "/" + year);
 
 
-    var jqxhr = $.get("../data/totalcount.json", function (data) {
-
-        console.log("fetching data from local count");;
-
-        //if(data)
-
-
-        console.log("data successfully received");
-
-    })
-        .done(function () {
-            console.log("hide");
-            //alert("second success");
-        })
-        .fail(function () {
-            alert("error");
-        })
-        .always(function () {
-            //alert("finished");
-        });
-
-
     $(".fab,.backdrop").click(function () {
         if ($(".backdrop").is(":visible")) {
             $(".backdrop").fadeOut(125);

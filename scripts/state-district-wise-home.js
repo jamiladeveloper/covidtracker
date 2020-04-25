@@ -1,7 +1,10 @@
 $(document).ready(function () {
 
+
     // fetch data from api
     var jqxhr = $.get("https://api.covid19india.org/v2/state_district_wise.json", function (data) {
+
+        
 
         console.log("fetching data from https://api.covid19india.org/v2/state_district_wise.json");
 
@@ -47,6 +50,8 @@ $(document).ready(function () {
         console.log("Total Active Cases = " + totalActiveCases);
         console.log("Total Deceased Cases = " + totalDeceasedCases);
         console.log("Total Recovered Cases = " + totalRecovedCases);
+
+        //Cookies.set('totalConfirmed', ''+totalConfirmedCases);
 
         // Sort Districts based on confirmed count
         topDistricts.sort(GetSortOrder("confirmed"));
