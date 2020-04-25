@@ -11,7 +11,7 @@ $(document).ready(function () {
         var totalRecovedCases = 0;
 
         var topDistricts = [];
-        var showMaxDistricts = 50;
+        var showMaxDistricts = 15;
 
 
         // State Loop
@@ -92,10 +92,10 @@ $(document).ready(function () {
 
         var count = 1;
         $.each(topDistricts, function (key, value) {
-            //if(count <= maxDistricts) {
+            if(count <= maxDistricts) {
                 tbody.append("<tr>" + "<td>" + count + "</td>" + "<td>" + value.district.district + "</td>" + "<td>" + value.state + "</td>" + "<td>" + value.district.confirmed + "</td>" + "<td>" + value.district.active + "</td>" + "<td>" + value.district.recovered + "</td>" + "<td>" + value.district.deceased + "</tr>");
                 count++;
-            //}
+            }
         });
     }
 
