@@ -1,88 +1,101 @@
 <html>
-    <head>
-        <title>Covid Tracker</title>
 
-        <link rel="icon" href="./images/favicon-corona.png" type="image/png" sizes="16x16">
+<head>
+    <title>Covid Tracker</title>
 
-        <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
-        <script src="./libs/js/jquery-3.5.0.min.js"></script>
-        <script src="./libs/js/popper.min.js"></script>
-        <script src="./libs/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div class="container-fluid body">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164578107-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-            <div class="row">
-                <div class="col-md-12 center titleheader">
-                    <img src="./images/covid-virus.jpg" alt="" width="150px" style="padding-bottom:25px"> 
-                    <span class="font-xxx-large"><strong><a href="./index.html">COVID19 INDIA TRACKER</a></strong></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 center date">
-                    <span id="date"></span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="space-big"></div>
-            </div>
-            <div class="row center">
-                <div class="col-md-8" style="margin: 0 auto;">
-                    <input class="form-control" id="essentialSearch" type="text" placeholder="Search.." style="height: 60px;">
-                </div>
-            </div>
-            <div class="row">
-                <div class="space-big"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 center">
-                    <span class="title font-xx-large">Essentials</span>
-                </div>  
-            </div>
-            <div class="row">
-                <div class="space-small"></div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-xs-12">
-                        <table id="essentials-table" class="table table-stripped font-large">
-                            <thead>
-                                <th>City</th>
-                                <th>Category</th>
-                                <th>Organisation</th>
-                                <th>Description</th>
-                                <th>Phone</th>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 footer align-left">
-                    <span>Datasource: <a href="https://www.covid19india.org/">covid19india.org</a></span>
-                </div>
-                <div class="col-md-6 footer align-right">
-                    <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
-                </div>
+        gtag('config', 'UA-164578107-1');
+    </script>
+
+    <link rel="icon" href="./images/favicon-corona.png" type="image/png" sizes="16x16">
+
+    <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
+    <script src="./libs/js/jquery-3.5.0.min.js"></script>
+    <script src="./libs/js/popper.min.js"></script>
+    <script src="./libs/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid body">
+
+        <div class="row">
+            <div class="col-md-12 center titleheader">
+                <img src="./images/covid-virus.jpg" alt="" width="150px" style="padding-bottom:25px">
+                <span class="font-xxx-large"><strong><a href="./index.html">COVID19 INDIA TRACKER</a></strong></span>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12 center date">
+                <span id="date"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="space-big"></div>
+        </div>
+        <div class="row center">
+            <div class="col-md-8" style="margin: 0 auto;">
+                <input class="form-control" id="essentialSearch" type="text" placeholder="Search.."
+                    style="height: 60px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="space-big"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 center">
+                <span class="title font-xx-large">Essentials</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="space-small"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <table id="essentials-table" class="table table-stripped font-large">
+                    <thead>
+                        <th>City</th>
+                        <th>Category</th>
+                        <th>Organisation</th>
+                        <th>Description</th>
+                        <th>Phone</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 footer align-left">
+                <span>Datasource: <a href="https://www.covid19india.org/">covid19india.org</a></span>
+            </div>
+            <div class="col-md-6 footer align-right">
+                <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
+            </div>
+        </div>
+    </div>
 
-        
-
-        
 
 
 
 
 
 
-        
 
-        <script src="./scripts/essentials.js"></script>
-        <script src="./scripts/common.js"></script>
 
-        <script src="./libs/js/smtp.js"></script>
-        
-        <link rel="stylesheet" href="./styles/common.css">
-    </body>
+
+
+
+    <script src="./scripts/essentials.js"></script>
+    <script src="./scripts/common.js"></script>
+
+    <script src="./libs/js/smtp.js"></script>
+
+    <link rel="stylesheet" href="./styles/common.css">
+</body>
+
 </html>
