@@ -10,26 +10,15 @@ $(document).ready(function () {
 
     // fetch data from api
     var jqxhr = $.get("https://api.covid19india.org/resources/resources.json", function (data) {
-
-        console.log("fetching data from https://api.covid19india.org/resources/resources.json");;
-
-
-        //topDistricts.sort(GetSortOrder("confirmed"));
         updateEssentialsTable(data.resources);
-
-
-        console.log("data successfully received");
-
     })
         .done(function () {
             console.log("hide");
-            //alert("second success");
         })
         .fail(function () {
             alert("error");
         })
         .always(function () {
-            //alert("finished");
         });
 
 
