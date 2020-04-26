@@ -1,11 +1,9 @@
 $(document).ready(function () {
 
     $(document).ajaxStart(function () {
-        //$("#loading").show();
-        console.log("show");
+        //$("#loader").show();
     }).ajaxStop(function () {
-        //$("#loading").hide();
-        
+        //$("#loader").hide();
     });
 
     // fetch data from api

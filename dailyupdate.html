@@ -3,6 +3,8 @@
 <head>
     <title>Covid Tracker</title>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <meta name="google-site-verification" content="cd-M9sdPSd-6eWoGBOQa9M1hutDpVnPSRV7kPOWbiMQ" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164578107-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -12,17 +14,19 @@
         gtag('config', 'UA-164578107-1');
     </script>
 
+    
+
     <link rel="icon" href="./images/favicon-corona.png" type="image/png" sizes="16x16">
 
     <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
     <script src="./libs/js/jquery-3.5.0.min.js"></script>
     <script src="./libs/js/popper.min.js"></script>
     <script src="./libs/js/bootstrap.min.js"></script>
+    <script src="./scripts/geolocation.js"></script>
 </head>
 
 <body>
     <div class="container-fluid body">
-
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,7 +38,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="./dailyupdate.html">Daily Updates</a>
+                            <a class="nav-link" href="#">Daily Updates</a>
                           </li>
                         <li class="nav-item">
                           <a class="nav-link" href="./districts.html">Districts</a>
@@ -60,69 +64,51 @@
                   </nav>
             </div>
         </div>
-        <div class="row">
-            <div class="space-big"></div>
-        </div>
-        <!--<div class="row">
-            <div class="col-md-12 center">
-                <div id="loader">
-                    <img src="./images/loader.gif" alt="" style="width:120px;position:absolute;z-index: 100;margin-right: 100px;">
-                </div>
-            </div>
-        </div>-->
-        <div class="row center">
-            <div class="col-md-8" style="margin: 0 auto;">
-                <input class="form-control" id="essentialSearch" type="text" placeholder="Search.."
-                    style="height: 60px;border: 1px solid gray;" >
-            </div>
-        </div>
+
         <div class="row">
             <div class="space-big"></div>
         </div>
 
         <div class="row">
-            <div class="space-small"></div>
+            <div class="space-big"></div>
         </div>
+
         <div class="row">
-            <div class="col-md-12 col-xs-12 center">
-                <table id="essentials-table" class="table table-striped font-large">
+            <div class="col-md-12 col-xs-12">
+                <table id="dailyupdate-table" class="table table-striped font-large">
                     <thead>
-                        <th>City</th>
-                        <th>Category</th>
-                        <th>Organisation</th>
-                        <th>Description</th>
-                        <th>Phone</th>
+                        <th>#No</th>
+                        <th>State</th>
+                        <th>Confirmed</th>
+                        <th>Recovered</th>
+                        <th>Deceased</th>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-md-6 footer align-left">
+            <div class="space-big"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 footer center">
                 <span>Datasource: <a href="https://www.covid19india.org/">covid19india.org</a></span>
             </div>
-            <div class="col-md-6 footer align-right">
+            <div class="col-md-6 footer center">
                 <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
             </div>
         </div>
+
+        <div class="backdrop"></div>
+        <div class="fab child" data-subitem="1"><span><a href="mailto:jamiladeveloper@gmail.com">Suggestions</a></span></div>
+        <div class="fab" id="masterfab"><span>+</span></div>
     </div>
 
-
-    
-
-
-
-
-
-
-
-
-
-    <script src="./scripts/essentials.js"></script>
+    <script src="./scripts/dailyupdate.js"></script>
     <script src="./scripts/common.js"></script>
-
-    <script src="./libs/js/smtp.js"></script>
 
     <link rel="stylesheet" href="./styles/common.css">
 </body>

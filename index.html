@@ -27,16 +27,41 @@
 
 <body>
     <div class="container-fluid body">
-
         <div class="row">
-            <div class="col-md-12 center titleheader">
-                <img src="./images/covid-virus.jpg" alt="" width="150px" style="padding-bottom:25px">
-                <span class="font-xxx-large"><strong><a href="./index.html">COVID19 INDIA TRACKER</a></strong></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 center date">
-                <span id="date"></span>
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#"><img src="./images/favicon-corona.png" alt="" style="width:33px;"> INDIACOVID</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./dailyupdate.html">Daily Updates</a>
+                          </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="./districts.html">Districts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./essentials.html">Essentials</a>
+                          </li>
+                        <li class="nav-item dropdown">
+                          <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </div>-->
+                        </li>
+                      </ul>
+                      <span class="navbar-text" id="date">
+                      </span>
+                    </div>
+                  </nav>
             </div>
         </div>
 
@@ -63,56 +88,6 @@
 
         <div class="row">
             <div class="space-big"></div>
-        </div>
-
-        <div class="row">
-            <div class="space-big"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 center">
-                <span class="title font-xx-large">
-                    <span class="marqueeclass">
-                        <img src="./images/icon-folded-hand-50.png" alt="">
-                        <a href="./essentials.html">Check Service Providers</a>
-                        <img src="./images/icon-folded-hand-50.png" alt="">
-                    </span>
-                </span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="space-big"></div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="space-big"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 center">
-                <span class="title font-xx-large">Top 15 Districts</span>
-                <span class="title font-large"> <a href="./districts.html">(View All Districts)</a></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="space-small"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <table id="top-districts-table" class="table table-striped font-large">
-                    <thead>
-                        <th>#No</th>
-                        <th>District</th>
-                        <th>State</th>
-                        <th>Confirmed</th>
-                        <th>Active</th>
-                        <th>Recovered</th>
-                        <th>Deceased</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
         </div>
 
 
