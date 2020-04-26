@@ -1,13 +1,15 @@
 $(document).ready(function () {
 
-    var dayText = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    var dayText = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     var now = new Date();
     var year = now.getFullYear();
     var month = now.getMonth() + 1;
     var date = now.getDate();
     var day = now.getDay();
 
-    $("#date").html(dayText[day - 1] + ", " + date + "/" + month + "/" + year);
+    $("#date").html(dayText[day] + ", " + date + "/" + month + "/" + year);
+
+    
 
 
     $(".fab,.backdrop").click(function () {
@@ -34,8 +36,6 @@ $(document).ready(function () {
             });
         }
     });
-
-
 
 });
 

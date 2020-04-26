@@ -5,6 +5,9 @@ $(document).ready(function () {
     
     var statesDailyCountArr = [];
 
+    var cookieData = getCookie("indiacovidstate");
+    console.log("State = " + cookieData);
+
     // fetch data from api
     var jqxhr = $.get("https://api.covid19india.org/v2/state_district_wise.json", function (data) {
         var totalConfirmedCases = 0;
@@ -195,5 +198,21 @@ $(document).ready(function () {
         "UT": "Uttarakhand",
         "WB": "West Bengal"
     };
+
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
 
 });
