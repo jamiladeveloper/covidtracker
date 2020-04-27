@@ -84,9 +84,13 @@ $(document).ready(function () {
         var statecode = cookieData.toLowerCase();
         
         $.each(data.states_daily, function(key, value) {
-            if(statesdailydays.indexOf(value.date) < 0){
-                statesdailydays.push(value.date);
+            var dateStr = value.date;
+            dateStr = dateStr.split('-')[0] + "-" + dateStr.split('-')[1];
+            
+            if(statesdailydays.indexOf(dateStr) < 0){
+                statesdailydays.push(dateStr);
             }
+            
             if(value.status === "Confirmed") {
                 statesdailyconfirmed.push(value[statecode]);
             }    
