@@ -2,6 +2,22 @@ $(document).ready(function () {
 
     var cookieData = getCookie("indiacovidstate");
     console.log("State = " + cookieData);
+    if (cookieData === "") {
+        var jqxhr = $.get("https://ipapi.co/json/", function (data) {
+            setCookie("indiacovidstate", data.region_code, 3);
+        })
+            .done(function () {
+                //alert("second success");
+            })
+            .fail(function () {
+                alert("error");
+            })
+            .always(function () {
+                //alert("finished");
+            });
+    }
+
+    
 
     var stateFullData = {};
 
@@ -55,7 +71,6 @@ $(document).ready(function () {
 
     })
         .done(function () {
-            console.log(JSON.stringify(stateFullData));
             localStorage.setItem("stateFullData", JSON.stringify(stateFullData));
         })
         .fail(function () {
@@ -81,6 +96,13 @@ $(document).ready(function () {
             }
         }
         return "";
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
 });

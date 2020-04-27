@@ -43,13 +43,8 @@ $(document).ready(function () {
 
         updateStatesDailyCount(statesDailyCountArr, yesterdayConfirmed, yesterdayRecovered, yesterdayDeceased);
 
-        //console.log("BEFORE SORTING");
-        //console.log(statesDailyCountArr);
-
         statesDailyCountArr.sort(GetSortOrder("totalconfirmed"));
 
-        //console.log("AFTER SORTING");
-        //console.log(statesDailyCountArr);
         updateDailyUpdateTable(statesDailyCountArr);
 
 
