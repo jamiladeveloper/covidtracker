@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-
+    var lastUpdateDate;
 
     var cookieData = getCookie("indiacovidstate");
     console.log("State = " + cookieData);
@@ -15,8 +15,6 @@ $(document).ready(function () {
     var jqxhr = $.get("https://api.covid19india.org/states_daily.json", function (data) {
 
         var statesDailyCountArr = [];
-
-        var yesterdayDate = getYesterdayDate();
         var statesDaily = data.states_daily;
 
         var yesterdayConfirmed = {};
@@ -24,9 +22,10 @@ $(document).ready(function () {
         var yesterdayDeceased = {};
 
         var indx = statesDaily.length - 1;
-        console.log(statesDaily[indx].date);
-        console.log(yesterdayDate);
-        while (statesDaily[indx].date === yesterdayDate) {
+        $("#lastUpdateDate").html(statesDaily[indx].date);
+        var count = 0;
+        
+        while (count<3) {
             if (statesDaily[indx].status === "Confirmed") {
                 yesterdayConfirmed = statesDaily[indx];
             }
@@ -38,7 +37,7 @@ $(document).ready(function () {
             }
 
             indx--;
-
+            count++;
         }
 
         updateStatesDailyCount(statesDailyCountArr, yesterdayConfirmed, yesterdayRecovered, yesterdayDeceased);
@@ -46,9 +45,6 @@ $(document).ready(function () {
         statesDailyCountArr.sort(GetSortOrder("totalconfirmed"));
 
         updateDailyUpdateTable(statesDailyCountArr);
-
-
-
 
     })
         .done(function () {
@@ -129,18 +125,6 @@ $(document).ready(function () {
             }
             return 0;
         }
-    }
-
-    function getYesterdayDate() {
-        var months = ["Jan", "Feb", "Mar", "Apr", "May"];
-        var now = new Date();
-        var yesterday = new Date(now);
-        yesterday.setDate(yesterday.getDate() - 1);
-        var year = yesterday.getFullYear();
-        var month = yesterday.getMonth();
-        var date = yesterday.getDate();
-
-        return date + "-" + months[month] + "-" + year % 100;
     }
 
 
