@@ -4,8 +4,9 @@ $(document).ready(function () {
     console.log("State = " + cookieData);
 
 
-    //updateChart();
-    $("stateName").html(states[cookieData]);
+    
+
+    
 
 
 
@@ -224,5 +225,8 @@ $(document).ready(function () {
         "UT": "Uttarakhand",
         "WB": "West Bengal"
     };
+
+    //updateChart();
+    $("stateName").html(states[cookieData]);
 
 });
