@@ -103,6 +103,8 @@ $(document).ready(function () {
 
         console.log(statesdailyjson);
 
+        updateChart(statesdailyjson);
+
     })
         .done(function () {
             localStorage.setItem("stateFullData", JSON.stringify(stateFullData));
@@ -117,11 +119,11 @@ $(document).ready(function () {
 
 
 
-    function updateChart() {
+    function updateChart(data) {
         new Chartist.Line('.ct-chart', {
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            labels: data.date,
             series: [
-                [12, 9, 7, 8, 5]    
+                data.confirmed    
             ]
         }, {
             fullWidth: true,
