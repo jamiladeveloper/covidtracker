@@ -119,11 +119,11 @@ $(document).ready(function () {
 
 
 
-    function updateChart(data) {
-        new Chartist.Line('.ct-chart', {
+    function updateConfirmedChart(data) {
+        new Chartist.Line('.ct-chart-confirmed', {
             labels: data.date,
             series: [
-                data.confirmed    
+                data.confirmed,
             ]
         }, {
             fullWidth: true,
@@ -134,6 +134,35 @@ $(document).ready(function () {
         });
     }
 
+    function updateRecoveredChart(data) {
+        new Chartist.Line('.ct-chart-recovered', {
+            labels: data.date,
+            series: [
+                data.recovered,
+            ]
+        }, {
+            fullWidth: true,
+            showPoint: false,
+            chartPadding: {
+                right: 40
+            }
+        });
+    }
+
+    function updateDeceasedChart(data) {
+        new Chartist.Line('.ct-chart-deceased', {
+            labels: data.date,
+            series: [
+                data.deceased,
+            ]
+        }, {
+            fullWidth: true,
+            showPoint: false,
+            chartPadding: {
+                right: 40
+            }
+        });
+    }
 
 
 
