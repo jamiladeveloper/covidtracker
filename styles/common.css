@@ -182,4 +182,11 @@ th {
         display: none;
       }
   }
+
+
+.chart-class {
+    width: 80%;
+    height: 300px;
+    margin: auto auto;
+}
   

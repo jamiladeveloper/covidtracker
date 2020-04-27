@@ -2,22 +2,11 @@ $(document).ready(function () {
 
     var cookieData = getCookie("indiacovidstate");
     console.log("State = " + cookieData);
-    if (cookieData === "") {
-        var jqxhr = $.get("https://ipapi.co/json/", function (data) {
-            setCookie("indiacovidstate", data.region_code, 3);
-        })
-            .done(function () {
-                //alert("second success");
-            })
-            .fail(function () {
-                alert("error");
-            })
-            .always(function () {
-                //alert("finished");
-            });
-    }
 
-    
+
+    //updateChart();
+
+
 
     var stateFullData = {};
 
@@ -37,7 +26,7 @@ $(document).ready(function () {
             var state = {};
             state.state = value.state;
             state.statecode = value.statecode;
-            
+
             state.confirmed = 0;
             state.active = 0;
             state.deceased = 0;
@@ -51,7 +40,7 @@ $(document).ready(function () {
                 totalRecovedCases += value.recovered;
 
 
-                state.confirmed +=value.confirmed;
+                state.confirmed += value.confirmed;
                 state.active += value.active;
                 state.deceased += value.deceased;
                 state.recovered += value.recovered;
@@ -81,6 +70,69 @@ $(document).ready(function () {
         });
 
 
+    var jqxhr = $.get("https://api.covid19india.org/states_daily.json", function (data) {
+
+        var statesdailyjson = {};
+        var statesdailydays = [];
+        var statesdailyconfirmed = [];
+        var statesdailyrecovered = [];
+        var statesdailydeceased = [];
+
+        statesdailyjson.statecode = cookieData;
+        var statecode = cookieData.toLowerCase();
+        
+        $.each(data.states_daily, function(key, value) {
+            if(statesdailydays.indexOf(value.date) < 0){
+                statesdailydays.push(value.date);
+            }
+            if(value.status === "Confirmed") {
+                statesdailyconfirmed.push(value[statecode]);
+            }    
+            else if(value.status === "Recovered") {
+                statesdailyrecovered.push(value[statecode]);
+            }
+            else if(value.status === "Deceased") {
+                statesdailydeceased.push(value[statecode]);
+            }
+        });
+
+        statesdailyjson.date = statesdailydays;
+        statesdailyjson.confirmed = statesdailyconfirmed;
+        statesdailyjson.recovered = statesdailyrecovered;
+        statesdailyjson.deceased = statesdailydeceased;
+
+        console.log(statesdailyjson);
+
+    })
+        .done(function () {
+            localStorage.setItem("stateFullData", JSON.stringify(stateFullData));
+        })
+        .fail(function () {
+            alert("error");
+        })
+        .always(function () {
+            //alert("finished");
+        });
+
+
+
+
+    function updateChart() {
+        new Chartist.Line('.ct-chart', {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            series: [
+                [12, 9, 7, 8, 5]    
+            ]
+        }, {
+            fullWidth: true,
+            showPoint: false,
+            chartPadding: {
+                right: 40
+            }
+        });
+    }
+
+
 
 
     function getCookie(cname) {
@@ -96,13 +148,6 @@ $(document).ready(function () {
             }
         }
         return "";
-    }
-
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
 });
