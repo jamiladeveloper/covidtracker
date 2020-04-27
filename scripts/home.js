@@ -3,6 +3,8 @@ $(document).ready(function () {
     var cookieData = getCookie("indiacovidstate");
     console.log("State = " + cookieData);
 
+    var stateFullData = {};
+
     // fetch data from api
     var jqxhr = $.get("https://api.covid19india.org/v2/state_district_wise.json", function (data) {
         var totalConfirmedCases = 0;
@@ -12,8 +14,18 @@ $(document).ready(function () {
 
         // State Loop
         $.each(data, function (key, value) {
+
             var stateData = value;
             var stateDistrictData = stateData.districtData;
+
+            var state = {};
+            state.state = value.state;
+            state.statecode = value.statecode;
+            
+            state.confirmed = 0;
+            state.active = 0;
+            state.deceased = 0;
+            state.recovered = 0;
 
             // State District Loop
             $.each(stateDistrictData, function (key, value) {
@@ -22,7 +34,15 @@ $(document).ready(function () {
                 totalDeceasedCases += value.deceased;
                 totalRecovedCases += value.recovered;
 
+
+                state.confirmed +=value.confirmed;
+                state.active += value.active;
+                state.deceased += value.deceased;
+                state.recovered += value.recovered;
+
             });
+
+            stateFullData[state.statecode] = state;
 
         });;
 
@@ -31,9 +51,12 @@ $(document).ready(function () {
         $("#totalDeceased").html(totalDeceasedCases);
         $("#totalRecovered").html(totalRecovedCases);
 
+        //console.log(stateFullData);
+
     })
         .done(function () {
-            //alert("second success");
+            console.log(JSON.stringify(stateFullData));
+            localStorage.setItem("stateFullData", JSON.stringify(stateFullData));
         })
         .fail(function () {
             alert("error");

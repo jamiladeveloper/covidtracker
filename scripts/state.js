@@ -1,9 +1,16 @@
 $(document).ready(function () {
 
-    
+
 
     var cookieData = getCookie("indiacovidstate");
     console.log("State = " + cookieData);
+
+    var stateFullData = JSON.parse(localStorage.getItem("stateFullData"));
+    if (stateFullData === "") {
+        console.log("local storage data missing");
+        updateLocalStorage("stateFullData");
+    }
+
 
     var jqxhr = $.get("https://api.covid19india.org/states_daily.json", function (data) {
 
@@ -20,7 +27,6 @@ $(document).ready(function () {
         console.log(statesDaily[indx].date);
         console.log(yesterdayDate);
         while (statesDaily[indx].date === yesterdayDate) {
-            console.log("yes");
             if (statesDaily[indx].status === "Confirmed") {
                 yesterdayConfirmed = statesDaily[indx];
             }
@@ -46,7 +52,7 @@ $(document).ready(function () {
         console.log(statesDailyCountArr);
         updateDailyUpdateTable(statesDailyCountArr);
 
-        
+
 
 
     })
@@ -64,14 +70,22 @@ $(document).ready(function () {
         var count = 0;
 
         $.each(states, function (key, value) {
-            var statesDailyCount = {};
-            statesDailyCount.statecode = key;
-            statesDailyCount.name = value;
-            statesDailyCount.confirmed = dailyCountConfirmed[key.toLowerCase()];
-            statesDailyCount.recovered = dailyCountRecovered[key.toLowerCase()];
-            statesDailyCount.deceased = dailyCountDeceased[key.toLowerCase()];
 
-            statesDailyCountArr.push(statesDailyCount);
+            if (stateFullData[key]) {
+                var statesDailyCount = {};
+                statesDailyCount.statecode = key;
+                statesDailyCount.name = value;
+                statesDailyCount.totalconfirmed = stateFullData[key].confirmed;
+                statesDailyCount.totalactive = stateFullData[key].active;
+                statesDailyCount.totalrecovered = stateFullData[key].recovered;
+                statesDailyCount.totaldeceased = stateFullData[key].deceased;
+
+                statesDailyCount.confirmed = dailyCountConfirmed[key.toLowerCase()];
+                statesDailyCount.recovered = dailyCountRecovered[key.toLowerCase()];
+                statesDailyCount.deceased = dailyCountDeceased[key.toLowerCase()];
+
+                statesDailyCountArr.push(statesDailyCount);
+            }
 
         });
     }
@@ -80,15 +94,33 @@ $(document).ready(function () {
 
         var tbody = $('#dailyupdate-table').children('tbody');
 
-        //Then if no tbody just select your table 
-        //var table = tbody.length ? tbody : $('#myTable');
-
         var count = 1;
         $.each(statesDailyCountArr, function (key, value) {
-            //if(count <= maxDistricts) {
-            tbody.append("<tr>" + "<td>" + count + "</td>" + "<td>" + value.name + "</td>" + "<td>" + value.confirmed + "</td>" + "<td>" + value.recovered + "</td>" + "<td>" + value.deceased + "</td>" + "</tr>");
+
+            var increasedConfirmed = "";
+            if (value.confirmed > 0) {
+                increasedConfirmed = "<span id='' style='padding-left:5px;color:red;font-size:medium;'>(&uarr;  <strong>" + value.confirmed + "</strong>)</span>"
+            }
+            var increasedRecovered = "";
+            if (value.confirmed > 0) {
+                increasedRecovered = "<span id='' style='padding-left:5px;color:green;font-size:medium;'>(&uarr;  <strong>" + value.recovered + "</strong>)</span>"
+            }
+            var increasedDeceased = "";
+            if (value.confirmed > 0) {
+                increasedDeceased = "<span id='' style='padding-left:5px;color:grey;font-size:medium;'>(&uarr;  <strong>" + value.deceased + "</strong>)</span>"
+            }
+
+            var tbodyRow = "<tr>";
+            tbodyRow += "<td>" + count + "</td>";
+            tbodyRow += "<td>" + value.name + "</td>";
+            tbodyRow += "<td>" + value.totalconfirmed + increasedConfirmed + "</td>";
+            tbodyRow += "<td>" + value.totalactive + "</td>";
+            tbodyRow += "<td>" + value.totalrecovered + increasedRecovered + "</td>";
+            tbodyRow += "<td>" + value.totaldeceased + increasedDeceased + "</td>";
+            tbodyRow += "</tr>";
+
+            tbody.append(tbodyRow);
             count++;
-            //}
         });
     }
 
@@ -172,6 +204,53 @@ $(document).ready(function () {
             }
         }
         return "";
+    }
+
+    function updateLocalStorage(key){
+        var stateFullData = {};
+
+    // fetch data from api
+        var jqxhr = $.get("https://api.covid19india.org/v2/state_district_wise.json", function (data) {
+        var totalConfirmedCases = 0;
+        var totalActiveCases = 0;
+        var totalDeceasedCases = 0;
+        var totalRecovedCases = 0;
+
+        // State Loop
+        $.each(data, function (key, value) {
+
+            var state = {};
+            state.state = value.state;
+            state.statecode = value.statecode;
+            state.confirmed = 0;
+            state.active = 0;
+            state.deceased = 0;
+            state.recovered = 0;
+
+            // State District Loop
+            $.each(value.districtData, function (key, value) {
+                state.confirmed +=value.confirmed;
+                state.active += value.active;
+                state.deceased += value.deceased;
+                state.recovered += value.recovered;
+
+            });
+
+            stateFullData[state.statecode] = state;
+
+        });
+
+    })
+        .done(function () {
+            localStorage.setItem(key, JSON.stringify(stateFullData));
+            console.log("local storage data updated");
+        })
+        .fail(function () {
+            alert("error");
+        })
+        .always(function () {
+            //alert("finished");
+        });
     }
 
 });
