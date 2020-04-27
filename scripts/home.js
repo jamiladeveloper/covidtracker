@@ -103,7 +103,9 @@ $(document).ready(function () {
 
         console.log(statesdailyjson);
 
-        updateChart(statesdailyjson);
+        updateConfirmedChart(statesdailyjson);
+        updateRecoveredChart(statesdailyjson);
+        updateDeceasedChart(statesdailyjson);
 
     })
         .done(function () {
