@@ -227,6 +227,6 @@ $(document).ready(function () {
     };
 
     //updateChart();
-    $("stateName").html(states[cookieData]);
+    $("#stateName").html(states[cookieData]);
 
 });
