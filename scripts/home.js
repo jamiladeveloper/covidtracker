@@ -5,6 +5,7 @@ $(document).ready(function () {
 
 
     //updateChart();
+    $("stateName").html(states[cookieData]);
 
 
 
@@ -182,5 +183,46 @@ $(document).ready(function () {
         }
         return "";
     }
+
+    var states = {
+        "AN": "Andaman and Nicobar Islands",
+        "AP": "Andhra Pradesh",
+        "AR": "Arunachal Pradesh",
+        "AS": "Assam",
+        "BR": "Bihar",
+        "CH": "Chandigarh",
+        "CT": "Chhattisgarh",
+        "DD": "0",
+        "DL": "Delhi",
+        "DN": "0",
+        "GA": "Goa",
+        "GJ": "Gujarat",
+        "HP": "Himachal Pradesh",
+        "HR": "Haryana",
+        "JH": "Jharkhand",
+        "JK": "Jammu and Kashmir",
+        "KA": "Karnataka",
+        "KL": "Kerala",
+        "lA": "Ladakh",
+        "lD": "0",
+        "MH": "Maharashtra",
+        "ML": "Meghalaya",
+        "MN": "Manipur",
+        "MP": "Madhya Pradesh",
+        "MZ": "Mizoram",
+        "NL": "Nagaland",
+        "OR": "Odisha",
+        "PB": "Punjab",
+        "PY": "Puducherry",
+        "RJ": "Rajasthan",
+        "SK": "Sikkim",
+        "TG": "Telangana",
+        "TN": "Tamil Nadu",
+        "TR": "Tripura",
+        "TT": "0",
+        "UP": "Uttar Pradesh",
+        "UT": "Uttarakhand",
+        "WB": "West Bengal"
+    };
 
 });
