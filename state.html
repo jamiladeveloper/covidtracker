@@ -1,53 +1,55 @@
 <html>
 
 <head>
-    <title>Covid Tracker</title>
+  <title>Covid Tracker</title>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <meta name="google-site-verification" content="cd-M9sdPSd-6eWoGBOQa9M1hutDpVnPSRV7kPOWbiMQ" />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164578107-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta name="google-site-verification" content="cd-M9sdPSd-6eWoGBOQa9M1hutDpVnPSRV7kPOWbiMQ" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164578107-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        gtag('config', 'UA-164578107-1');
-    </script>
+    gtag('config', 'UA-164578107-1');
+  </script>
 
-    
 
-    <link rel="icon" href="./images/favicon-corona.png" type="image/png" sizes="16x16">
 
-    <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
-    <script src="./libs/js/jquery-3.5.0.min.js"></script>
-    <script src="./libs/js/popper.min.js"></script>
-    <script src="./libs/js/bootstrap.min.js"></script>
-    <script src="./scripts/geolocation.js"></script>
+  <link rel="icon" href="./images/favicon-corona.png" type="image/png" sizes="16x16">
+
+  <link rel="stylesheet" href="./libs/css/bootstrap.min.css">
+  <script src="./libs/js/jquery-3.5.0.min.js"></script>
+  <script src="./libs/js/popper.min.js"></script>
+  <script src="./libs/js/bootstrap.min.js"></script>
+  <script src="./scripts/geolocation.js"></script>
 </head>
 
 <body>
-    <div class="container-fluid body">
-        <div class="row">
-            <div class="col-md-12">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class="navbar-brand" href="./index.html"><img src="./images/favicon-corona.png" alt="" style="width:33px;"> INDIACOVID</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">States</a>
-                          </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="./districts.html">Districts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./essentials.html">Essentials</a>
-                          </li>
-                        <li class="nav-item dropdown">
-                          <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="container-fluid body">
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="./index.html"><img src="./images/favicon-corona.png" alt="" style="width:33px;">
+            INDIACOVID</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">States</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./districts.html">Districts</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./essentials.html">Essentials</a>
+              </li>
+              <li class="nav-item dropdown">
+                <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Dropdown
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -56,68 +58,66 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                           </div>-->
-                        </li>
-                      </ul>
-                      <span class="navbar-text" id="date">
-                      </span>
-                    </div>
-                  </nav>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="space-big"></div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12 center font-x-large">
-            <span>Last Updated: </span><span id="lastUpdateDate"></span>
+              </li>
+            </ul>
+            <span class="navbar-text" id="date">
+            </span>
           </div>
-        </div>
-
-        <div class="row">
-            <div class="space-small"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 col-xs-12">
-                <table id="dailyupdate-table" class="table table-striped font-large">
-                    <thead>
-                        <th>#No</th>
-                        <th>State</th>
-                        <th>Confirmed</th>
-                        <th>Active</th>
-                        <th>Recovered</th>
-                        <th>Deceased</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="space-big"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 footer center">
-                <span>Datasource: <a href="https://www.covid19india.org/">covid19india.org</a></span>
-            </div>
-            <div class="col-md-6 footer center">
-                <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
-            </div>
-        </div>
-
-        <div class="backdrop"></div>
-        <div class="fab child" data-subitem="1"><span><a href="mailto:jamiladeveloper@gmail.com">Suggestions</a></span></div>
-        <div class="fab" id="masterfab"><span>+</span></div>
+        </nav>
+      </div>
     </div>
 
-    <script src="./scripts/state.js"></script>
-    <script src="./scripts/common.js"></script>
+    <div class="row">
+      <div class="space-big"></div>
+    </div>
 
-    <link rel="stylesheet" href="./styles/common.css">
+    <div class="row">
+      <div class="col-md-12 center font-x-large">
+        <span>Last Updated: </span><span id="lastUpdateDate"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="space-small"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <table id="dailyupdate-table" class="table table-striped font-large">
+          <thead>
+            <th>#No</th>
+            <th>State</th>
+            <th>Confirmed</th>
+            <th>Active</th>
+            <th>Recovered</th>
+            <th>Deceased</th>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="space-big"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 footer center">
+        <span>Developed by <a href="http://anandgautam.online/">Anand</a></span>
+      </div>
+    </div>
+
+    <div class="backdrop"></div>
+    <div class="fab child" data-subitem="1"><span><a href="mailto:jamiladeveloper@gmail.com">Suggestions</a></span>
+    </div>
+    <div class="fab" id="masterfab"><span>+</span></div>
+  </div>
+
+  <script src="./scripts/state.js"></script>
+  <script src="./scripts/common.js"></script>
+
+  <link rel="stylesheet" href="./styles/common.css">
 </body>
 
 </html>
